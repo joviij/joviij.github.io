@@ -1,0 +1,68 @@
+{
+  "entrypoint": "index.html",
+  "shell": "appLoad.js",
+  "fragments": [],
+  "sources": [
+    "src/**/*",
+    "assets/**/*",
+    "package.json",
+    "main.css",
+    ".nojekyll",
+    "index.html",
+    "appLoad.js"
+  ],
+  "extraDependencies": [
+    "bower_components/webcomponentsjs/*.js",
+    "manifest.json",
+    "node_modules/@webcomponents/webcomponentsjs/bundles/**",
+    "node_modules/@polymer/polymer/**",
+    "node_modules/@webcomponents/shadycss/**"
+  ],
+  "builds": [
+    {
+      "name": "prod",
+      "browserCapabilities": [
+        "es2015",
+        "push"
+      ],
+      "js": {
+        "minify": true,
+        "compile": "es2015",
+        "transformModulesToAmd": true
+      },
+      "css": {
+        "minify": true
+      },
+      "html": {
+        "minify": true
+      },
+      "bundle": false,
+      "addServiceWorker": true,
+      "addPushManifest": true,
+      "preset": "es6-unbundled"
+    },
+    {
+      "name": "dev",
+      "js": {
+        "minify": false,
+        "compile": false
+      },
+      "css": {
+        "minify": false
+      },
+      "html": {
+        "minify": false
+      },
+      "bundle": false,
+      "addPushManifest": false
+    }
+  ],
+  "lint": {
+    "rules": [
+      "polymer-3"
+    ]
+  },
+  "npm": true,
+  "componentDir": "node_modules/",
+  "moduleResolution": "node"
+}

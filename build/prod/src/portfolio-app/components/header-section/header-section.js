@@ -1,8 +1,4 @@
-import { html, PolymerElement } from "../../../../node_modules/@polymer/polymer/polymer-element.js";
-
-class HeaderSection extends PolymerElement {
-  static get template() {
-    return html`
+define(["../../../../node_modules/@polymer/polymer/polymer-element.js"],function(_polymerElement){"use strict";class HeaderSection extends _polymerElement.PolymerElement{static get template(){return _polymerElement.html`
 			<style>
 				.header-section {
 					width: 100%;
@@ -18,9 +14,4 @@ class HeaderSection extends PolymerElement {
 			<section class="header-section">
 				<slot></slot>
 			</section>
-		`;
-  }
-
-}
-
-customElements.define('header-section', HeaderSection);
+		`}}customElements.define("header-section",HeaderSection)});
