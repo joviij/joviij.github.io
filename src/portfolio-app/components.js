@@ -1,1 +1,5 @@
-define(["./components/header-section/header-section.js","./components/custom-folder/custom-folder.js","./components/folder-box/folder-box.js","./components/cool-card/cool-card.js","./components/custom-footer/custom-footer.js"],function(){"use strict"});
+import './components/header-section/header-section.js';
+import './components/custom-folder/custom-folder.js';
+import './components/folder-box/folder-box.js';
+import './components/cool-card/cool-card.js';
+import './components/custom-footer/custom-footer.js';

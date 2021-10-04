@@ -1,4 +1,11 @@
-define(["../../../../node_modules/@polymer/polymer/polymer-element.js","../../../../node_modules/@polymer/polymer/lib/elements/dom-repeat.js","../../../../node_modules/@webcomponents/shadycss/entrypoints/apply-shim.js","../custom-file/custom-file.js"],function(_polymerElement){"use strict";class CustomFolder extends _polymerElement.PolymerElement{static get template(){return _polymerElement.html`
+import { html, PolymerElement } from "../../../../node_modules/@polymer/polymer/polymer-element.js";
+import "../../../../node_modules/@polymer/polymer/lib/elements/dom-repeat.js";
+import "../../../../node_modules/@webcomponents/shadycss/entrypoints/apply-shim.js";
+import '../custom-file/custom-file.js'; // custom folder icon fill color: #231f20
+
+class CustomFolder extends PolymerElement {
+  static get template() {
+    return html`
         <style>
             .custom-folder {
                 -webkit-user-select: none; /* Safari */        
@@ -43,4 +50,43 @@ define(["../../../../node_modules/@polymer/polymer/polymer-element.js","../../..
                 </template>
             </ul> 
         </div>
-        `}static get properties(){return{folderName:String,files:{type:Array,value(){return[]}}}}constructor(){super();this.__folder__=null;this.fileSize=24}ready(){let folderSize=this.fileSize*this.files.length;super.ready();this.__folder__=this.shadowRoot.querySelector(".files");this.updateStyles({"--folder-height":folderSize+"px"})}expandFolder(){this.__folder__.classList.toggle("visible")}}customElements.define("custom-folder",CustomFolder)});
+        `;
+  }
+
+  static get properties() {
+    return {
+      folderName: String,
+      files: {
+        type: Array,
+
+        value() {
+          return [];
+        }
+
+      }
+    };
+  }
+
+  constructor() {
+    super();
+    this.__folder__ = null;
+    this.fileSize = 24;
+  }
+
+  ready() {
+    let folderSize = this.fileSize * this.files.length;
+    super.ready();
+    this.__folder__ = this.shadowRoot.querySelector('.files'); // set the height of folder dynamically based on number of files. 
+
+    this.updateStyles({
+      '--folder-height': folderSize + 'px'
+    });
+  }
+
+  expandFolder() {
+    this.__folder__.classList.toggle('visible');
+  }
+
+}
+
+customElements.define('custom-folder', CustomFolder);

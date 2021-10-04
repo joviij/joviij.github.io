@@ -1,1 +1,21 @@
-body{background-color:black;color:white;font-family:'Inconsolata', monospace;}.loading{opacity:0;}.mail-button{background-color:#333333;color:white;font-weight:600;padding:7px 7px;text-decoration:none;}custom-footer img{width:20px;}
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Inconsolata', monospace;
+}
+
+.loading {
+    opacity: 0;
+}
+
+.mail-button {
+    background-color: #333333;
+    color: white;
+    font-weight: 600;
+    padding: 7px 7px;
+    text-decoration: none;
+}
+
+custom-footer img {
+    width: 20px;
+}

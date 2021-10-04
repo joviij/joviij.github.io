@@ -1,1 +1,44 @@
-define(["exports"],function(_exports){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.default=void 0;_exports.default=class{constructor(){}throttle(func,wait,options){var context,args,result,timeout=null,previous=0;if(!options)options={};var later=function(){previous=!1===options.leading?0:Date.now();timeout=null;result=func.apply(context,args);if(!timeout)context=args=null};return function(){var now=Date.now();if(!previous&&!1===options.leading)previous=now;var remaining=wait-(now-previous);context=this;args=arguments;if(0>=remaining||remaining>wait){if(timeout){clearTimeout(timeout);timeout=null}previous=now;result=func.apply(context,args);if(!timeout)context=args=null}else if(!timeout&&!1!==options.trailing){timeout=setTimeout(later,remaining)}return result}}}});
+class UtilObject {
+  constructor() {} // using the lodash throttle utility
+
+
+  throttle(func, wait, options) {
+    var context, args, result;
+    var timeout = null;
+    var previous = 0;
+    if (!options) options = {};
+
+    var later = function () {
+      previous = options.leading === false ? 0 : Date.now();
+      timeout = null;
+      result = func.apply(context, args);
+      if (!timeout) context = args = null;
+    };
+
+    return function () {
+      var now = Date.now();
+      if (!previous && options.leading === false) previous = now;
+      var remaining = wait - (now - previous);
+      context = this;
+      args = arguments;
+
+      if (remaining <= 0 || remaining > wait) {
+        if (timeout) {
+          clearTimeout(timeout);
+          timeout = null;
+        }
+
+        previous = now;
+        result = func.apply(context, args);
+        if (!timeout) context = args = null;
+      } else if (!timeout && options.trailing !== false) {
+        timeout = setTimeout(later, remaining);
+      }
+
+      return result;
+    };
+  }
+
+}
+
+export default UtilObject;
