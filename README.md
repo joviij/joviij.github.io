@@ -9,10 +9,15 @@ The develop branch is the branch where all the dev changes are applied.
 
 To view the application locally, run the following command:
 ```
-$ polymer serve
+polymer serve
 ```
 
 To build:
 ```
-$ polymer build
+polymer build
+```
+
+To update github pages:
+```
+git subtree push --prefix build/prod origin gh-pages
 ```
