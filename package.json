@@ -4,7 +4,7 @@
   "dependencies": {
     "@polymer/polymer": "^3.4.1",
     "growl": "^1.10.5",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.23"
   },
   "devDependencies": {
     "@webcomponents/webcomponentsjs": "^2.6.0",
